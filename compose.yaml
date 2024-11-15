@@ -1,0 +1,13 @@
+services:
+  frontend-dev:
+    build:
+      context: .
+      target: build
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - NODE_ENV=dev
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app/front:delegated
+      - /node_modules
